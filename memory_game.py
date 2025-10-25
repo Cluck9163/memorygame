@@ -2,6 +2,8 @@ import tkinter
 #ボタンの関数
 def b1():
     button1["text"] = "A"
+def b2():
+    button2["text"] = "B"
 #ウィンドウ、キャンバス
 root = tkinter.Tk()
 root.title("神経衰弱")
@@ -27,7 +29,7 @@ for c in range(6):
 #ボタンの配置
 button1 = tkinter.Button(root, text="C", font=("Times New Roman",40),bg="yellow",command=b1)
 button1.place(x=60,y=70) 
-button2 = tkinter.Button(root, text="C", font=("Times New Roman",40),bg="yellow")
+button2 = tkinter.Button(root, text="C", font=("Times New Roman",40),bg="yellow",command=b2)
 button2.place(x=180,y=70) 
 button3 = tkinter.Button(root, text="C", font=("Times New Roman",40),bg="yellow")
 button3.place(x=300,y=70) 
