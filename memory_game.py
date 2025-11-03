@@ -1,11 +1,29 @@
 import tkinter
+#押されたボタンを保存するリスト
+opened = []
 #ボタンの関数
 def b1():
     button1["text"] = "A"
+    opened.append(button1["text"])#空の変数にボタンを入れる
 def b2():
     button2["text"] = "B"
+    opened.append(button2["text"])
 def b3():
     button3["text"] = "D"
+def b4():
+    button4["text"] = "A"
+def b5():
+    button5["text"] = "B"
+def b6():
+    button6["text"] = "D"
+#二つのボタンを判定する関数
+def check_cards():
+    i1, i2 = opened
+    if i1["text"] != i2["text"]:
+        i1["text"] = "C"
+        i2["text"] = "C"
+        opened.clear()
+         
 #ウィンドウ、キャンバス
 root = tkinter.Tk()
 root.title("神経衰弱")
@@ -35,11 +53,11 @@ button2 = tkinter.Button(root, text="C", font=("Times New Roman",40),bg="yellow"
 button2.place(x=180,y=70) 
 button3 = tkinter.Button(root, text="C", font=("Times New Roman",40),bg="yellow",command=b3)
 button3.place(x=300,y=70) 
-button4 = tkinter.Button(root, text="C", font=("Times New Roman",40),bg="yellow")
+button4 = tkinter.Button(root, text="C", font=("Times New Roman",40),bg="yellow",command=b4)
 button4.place(x=420,y=70) 
-button5 = tkinter.Button(root, text="C", font=("Times New Roman",40),bg="yellow")
+button5 = tkinter.Button(root, text="C", font=("Times New Roman",40),bg="yellow",command=b5)
 button5.place(x=540,y=70) 
-button6 = tkinter.Button(root, text="C", font=("Times New Roman",40),bg="yellow")
+button6 = tkinter.Button(root, text="C", font=("Times New Roman",40),bg="yellow",command=b6)
 button6.place(x=660,y=70) 
 ubutton1 = tkinter.Button(root, text="C", font=("Times New Roman",40),bg="yellow")
 ubutton1.place(x=60,y=270) 
@@ -65,5 +83,7 @@ bubutton5 = tkinter.Button(root, text="C", font=("Times New Roman",40),bg="yello
 bubutton5.place(x=540,y=470) 
 bubutton6 = tkinter.Button(root, text="C", font=("Times New Roman",40),bg="yellow")
 bubutton6.place(x=660,y=470)
-
+#opened変数のボタンが二つになったら関数を呼ぶ
+if opened == 2:
+    root.after(1000, check_cards)
 root.mainloop()
