@@ -4,24 +4,110 @@ opened = []
 #ボタンの関数
 def b1():
     button1["text"] = "A"
-    opened.append(button1["text"])#空の変数にボタンを入れる
+    opened.append(button1)#空の変数にボタンを入れる
+    #opened変数のボタンが二つになったら関数を呼ぶ
+    if len(opened) == 2:
+        root.after(1000, check_cards)
+
 def b2():
     button2["text"] = "B"
-    opened.append(button2["text"])
+    opened.append(button2)
+    #opened変数のボタンが二つになったら関数を呼ぶ
+    if len(opened) == 2:
+        root.after(1000, check_cards)
+
 def b3():
     button3["text"] = "D"
+    opened.append(button3)
+    if len(opened) == 2:
+        root.after(1000, check_cards)
+
 def b4():
     button4["text"] = "A"
+    opened.append(button4)
+    if len(opened) == 2:
+        root.after(1000, check_cards)
 def b5():
     button5["text"] = "B"
+    opened.append(button5)
+    if len(opened) == 2:
+        root.after(1000, check_cards)
 def b6():
     button6["text"] = "D"
+    opened.append(button6)
+    if len(opened) == 2:
+        root.after(1000, check_cards)
+def ub1():
+    ubutton1["text"] = "E"
+    opened.append(ubutton1)
+    if len(opened) == 2:
+        root.after(1000, check_cards)
+def ub2():
+    ubutton2["text"] = "F"
+    opened.append(ubutton2)
+    if len(opened) == 2:
+        print("hello")
+        root.after(1000, check_cards)
+def ub3():
+    ubutton3["text"] = "G"
+    opened.append(ubutton3)
+    if len(opened) == 2:
+        root.after(1000, check_cards)
+def ub4():
+    ubutton4["text"] = "E"
+    opened.append(ubutton4)
+    if len(opened) == 2:
+        root.after(1000, check_cards)
+def ub5():
+    ubutton5["text"] = "F"
+    opened.append(ubutton5)
+    if len(opened) == 2:
+        root.after(1000, check_cards)
+def ub6():
+    ubutton6["text"] = "G"
+    opened.append(ubutton6)
+    if len(opened) == 2:
+        root.after(1000, check_cards)
+def bub1():
+    bubutton1["text"] = "H"
+    opened.append(bubutton1)
+    if len(opened) == 2:
+        root.after(1000, check_cards)
+def bub2():
+    bubutton2["text"] = "I"
+    opened.append(bubutton2)
+    if len(opened) == 2:
+        root.after(1000, check_cards)
+def bub3():
+    bubutton3["text"] = "J"
+    opened.append(bubutton3)
+    if len(opened) == 2:
+        root.after(1000, check_cards)
+def bub4():
+    bubutton4["text"] = "H"
+    opened.append(bubutton4)
+    if len(opened) == 2:
+        root.after(1000, check_cards)
+def bub5():
+    bubutton5["text"] = "I"
+    opened.append(bubutton5)
+    if len(opened) == 2:
+        root.after(1000, check_cards)
+def bub6():
+    bubutton6["text"] = "J"
+    opened.append(bubutton6)
+    if len(opened) == 2:
+        root.after(1000, check_cards)
+
 #二つのボタンを判定する関数
 def check_cards():
     i1, i2 = opened
-    if i1["text"] != i2["text"]:
+    if i1["text"] != i2["text"]:#ボタンのテクストが違ったら元に戻す
         i1["text"] = "C"
         i2["text"] = "C"
+    elif i1["text"] == i2["text"]:#ボタンがそろった瞬間そのボタンを消す
+        i1.destroy()
+        i2.destroy()
         opened.clear()
          
 #ウィンドウ、キャンバス
@@ -59,31 +145,29 @@ button5 = tkinter.Button(root, text="C", font=("Times New Roman",40),bg="yellow"
 button5.place(x=540,y=70) 
 button6 = tkinter.Button(root, text="C", font=("Times New Roman",40),bg="yellow",command=b6)
 button6.place(x=660,y=70) 
-ubutton1 = tkinter.Button(root, text="C", font=("Times New Roman",40),bg="yellow")
+ubutton1 = tkinter.Button(root, text="C", font=("Times New Roman",40),bg="yellow",command=ub1)
 ubutton1.place(x=60,y=270) 
-ubutton2 = tkinter.Button(root, text="C", font=("Times New Roman",40),bg="yellow")
+ubutton2 = tkinter.Button(root, text="C", font=("Times New Roman",40),bg="yellow",command=ub2)
 ubutton2.place(x=180,y=270) 
-ubutton3 = tkinter.Button(root, text="C", font=("Times New Roman",40),bg="yellow")
+ubutton3 = tkinter.Button(root, text="C", font=("Times New Roman",40),bg="yellow",command=ub3)
 ubutton3.place(x=300,y=270) 
-ubutton4 = tkinter.Button(root, text="C", font=("Times New Roman",40),bg="yellow")
+ubutton4 = tkinter.Button(root, text="C", font=("Times New Roman",40),bg="yellow",command=ub4)
 ubutton4.place(x=420,y=270) 
-ubutton5 = tkinter.Button(root, text="C", font=("Times New Roman",40),bg="yellow")
+ubutton5 = tkinter.Button(root, text="C", font=("Times New Roman",40),bg="yellow",command=ub5)
 ubutton5.place(x=540,y=270) 
-ubutton6 = tkinter.Button(root, text="C", font=("Times New Roman",40),bg="yellow")
+ubutton6 = tkinter.Button(root, text="C", font=("Times New Roman",40),bg="yellow",command=ub6)
 ubutton6.place(x=660,y=270) 
-bubutton1 = tkinter.Button(root, text="C", font=("Times New Roman",40),bg="yellow")
+bubutton1 = tkinter.Button(root, text="C", font=("Times New Roman",40),bg="yellow",command=bub1)
 bubutton1.place(x=60,y=470) 
-bubutton2 = tkinter.Button(root, text="C", font=("Times New Roman",40),bg="yellow")
+bubutton2 = tkinter.Button(root, text="C", font=("Times New Roman",40),bg="yellow",command=bub2)
 bubutton2.place(x=180,y=470) 
-bubutton3 = tkinter.Button(root, text="C", font=("Times New Roman",40),bg="yellow")
+bubutton3 = tkinter.Button(root, text="C", font=("Times New Roman",40),bg="yellow",command=bub3)
 bubutton3.place(x=300,y=470) 
-bubutton4 = tkinter.Button(root, text="C", font=("Times New Roman",40),bg="yellow")
+bubutton4 = tkinter.Button(root, text="C", font=("Times New Roman",40),bg="yellow",command=bub4)
 bubutton4.place(x=420,y=470) 
-bubutton5 = tkinter.Button(root, text="C", font=("Times New Roman",40),bg="yellow")
+bubutton5 = tkinter.Button(root, text="C", font=("Times New Roman",40),bg="yellow",command=bub5)
 bubutton5.place(x=540,y=470) 
-bubutton6 = tkinter.Button(root, text="C", font=("Times New Roman",40),bg="yellow")
+bubutton6 = tkinter.Button(root, text="C", font=("Times New Roman",40),bg="yellow",command=bub6)
 bubutton6.place(x=660,y=470)
-#opened変数のボタンが二つになったら関数を呼ぶ
-if opened == 2:
-    root.after(1000, check_cards)
+
 root.mainloop()
