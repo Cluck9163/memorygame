@@ -1,18 +1,19 @@
 import tkinter
 #押されたボタンを保存するリスト
 opened = []
+#プレイヤーの変数
+player = 1
 #ボタンの関数
 def b1():
     button1["text"] = "A"
     opened.append(button1)#空の変数にボタンを入れる
     #opened変数のボタンが二つになったら関数を呼ぶ
     if len(opened) == 2:
-        root.after(1000, check_cards)
+        root.after(500, check_cards)
 
 def b2():
     button2["text"] = "B"
     opened.append(button2)
-    #opened変数のボタンが二つになったら関数を呼ぶ
     if len(opened) == 2:
         root.after(1000, check_cards)
 
@@ -101,20 +102,34 @@ def bub6():
 
 #二つのボタンを判定する関数
 def check_cards():
+    global player
+    global player_score1
+    global player_score2
     i1, i2 = opened
     if i1["text"] != i2["text"]:#ボタンのテクストが違ったら元に戻す
         i1["text"] = "C"
         i2["text"] = "C"
+        if player == 1:
+            player = 2
+        else:
+            player = 1
+        opened.clear()
     elif i1["text"] == i2["text"]:#ボタンがそろった瞬間そのボタンを消す
         i1.destroy()
         i2.destroy()
         opened.clear()
+        if player == 1:
+            player_score1["text"] += 1
+            player = 1
+        else:
+            player_score2["text"] += 1
+            player = 2
          
-#ウィンドウ、キャンバス
+#ウィンドウ、キャンバス、その他もろもろ
 root = tkinter.Tk()
 root.title("神経衰弱")
-root.geometry("800x700")
-canvas  = tkinter.Canvas(root, width=800, height=700, bg="skyblue")
+root.geometry("800x800")
+canvas  = tkinter.Canvas(root, width=800, height=800, bg="skyblue")
 canvas.pack()
 #赤色シートの配置
 card_width=100
@@ -132,6 +147,11 @@ for c in range(6):
     x1 = c*(card_width+gap)+50
     x2 = x1 + card_width
     canvas.create_rectangle(x1,450,x2,600,fill="red",outline="red",width=2)
+#得点を表示するラベル
+player_score1 = tkinter.Label(root, text=0, font=("Times New Roman",80),bg="skyblue")
+player_score1.place(x=60, y=650)
+player_score2 = tkinter.Label(root, text=0, font=("Times New Roman",80),bg="skyblue")
+player_score2.place(x=660, y=650)
 #ボタンの配置
 button1 = tkinter.Button(root, text="C", font=("Times New Roman",40),bg="yellow",command=b1)
 button1.place(x=60,y=70) 
