@@ -1,60 +1,80 @@
 import tkinter
+from tkinter import ttk
 #押されたボタンを保存するリスト
 opened = []
 #プレイヤーの変数
 player = 1
+root = tkinter.Tk()
+root.title("神経衰弱")
+root.geometry("800x800")
+canvas  = tkinter.Canvas(root, width=800, height=800, bg="skyblue")
+canvas.pack()
+
 #ボタンの関数
 def b1():
+    global buttons
     button1["text"] = "A"
     opened.append(button1)#空の変数にボタンを入れる
-    #opened変数のボタンが二つになったら関数を呼ぶ
-    if len(opened) == 2:
-        root.after(500, check_cards)
 
 def b2():
+    global buttons
     button2["text"] = "B"
     opened.append(button2)
     if len(opened) == 2:
         root.after(1000, check_cards)
 
 def b3():
+    global buttons
     button3["text"] = "D"
     opened.append(button3)
     if len(opened) == 2:
         root.after(1000, check_cards)
 
 def b4():
+    global buttons
     button4["text"] = "A"
     opened.append(button4)
     if len(opened) == 2:
         root.after(1000, check_cards)
+
 def b5():
+    global buttons
     button5["text"] = "B"
     opened.append(button5)
     if len(opened) == 2:
         root.after(1000, check_cards)
+
 def b6():
+    global buttons
     button6["text"] = "D"
     opened.append(button6)
     if len(opened) == 2:
         root.after(1000, check_cards)
+
 def ub1():
+    global buttons
     ubutton1["text"] = "E"
     opened.append(ubutton1)
     if len(opened) == 2:
         root.after(1000, check_cards)
+
 def ub2():
+    global buttons
     ubutton2["text"] = "F"
     opened.append(ubutton2)
     if len(opened) == 2:
         print("hello")
         root.after(1000, check_cards)
+
 def ub3():
+    global buttons
     ubutton3["text"] = "G"
     opened.append(ubutton3)
     if len(opened) == 2:
         root.after(1000, check_cards)
+
 def ub4():
+    global buttons
     ubutton4["text"] = "E"
     opened.append(ubutton4)
     if len(opened) == 2:
@@ -64,6 +84,7 @@ def ub5():
     opened.append(ubutton5)
     if len(opened) == 2:
         root.after(1000, check_cards)
+
 def ub6():
     ubutton6["text"] = "G"
     opened.append(ubutton6)
@@ -80,6 +101,7 @@ def bub2():
     if len(opened) == 2:
         root.after(1000, check_cards)
 def bub3():
+    global buttons
     bubutton3["text"] = "J"
     opened.append(bubutton3)
     if len(opened) == 2:
@@ -89,16 +111,20 @@ def bub4():
     opened.append(bubutton4)
     if len(opened) == 2:
         root.after(1000, check_cards)
+
 def bub5():
     bubutton5["text"] = "I"
     opened.append(bubutton5)
     if len(opened) == 2:
         root.after(1000, check_cards)
+
 def bub6():
+    global buttons
     bubutton6["text"] = "J"
     opened.append(bubutton6)
     if len(opened) == 2:
         root.after(1000, check_cards)
+    
 
 #二つのボタンを判定する関数
 def check_cards():
@@ -124,13 +150,12 @@ def check_cards():
         else:
             player_score2["text"] += 1
             player = 2
+    #ボタンがウィンドウから消えたらその都度リストを更新する
+    buttons = [w for w in root.winfo_children() if isinstance(w, tkinter.Button)]
+    if not buttons:
+        print("プログラム成功")
          
 #ウィンドウ、キャンバス、その他もろもろ
-root = tkinter.Tk()
-root.title("神経衰弱")
-root.geometry("800x800")
-canvas  = tkinter.Canvas(root, width=800, height=800, bg="skyblue")
-canvas.pack()
 #赤色シートの配置
 card_width=100
 card_height=100
@@ -189,5 +214,8 @@ bubutton5 = tkinter.Button(root, text="C", font=("Times New Roman",40),bg="yello
 bubutton5.place(x=540,y=470) 
 bubutton6 = tkinter.Button(root, text="C", font=("Times New Roman",40),bg="yellow",command=bub6)
 bubutton6.place(x=660,y=470)
+#テスト
+buttons = [w for w in root.winfo_children() if isinstance(w, tkinter.Button)]
+
 
 root.mainloop()
