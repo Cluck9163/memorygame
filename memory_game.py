@@ -9,6 +9,8 @@ root.title("神経衰弱")
 root.geometry("800x800")
 canvas  = tkinter.Canvas(root, width=800, height=800, bg="skyblue")
 canvas.pack()
+canvas_end = tkinter.Canvas(root, width=800, height=800, bg="skyblue")
+canvas_end.pack_forget
 
 #ボタンの関数
 def b1():
@@ -153,8 +155,14 @@ def check_cards():
     #ボタンがウィンドウから消えたらその都度リストを更新する
     buttons = [w for w in root.winfo_children() if isinstance(w, tkinter.Button)]
     if not buttons:
-        print("プログラム成功")
-         
+        canvas.pack_forget()
+        result_win = tkinter.Label(canvas_end, text="結果",font=("Times New Roman",80),bg="skyblue")
+        if player_score1["text"] > player_score2["text"]:
+            result_win["text"] = player_score1
+        else:
+            result_win["text"] = player_score2
+        canvas_end.pack()
+        
 #ウィンドウ、キャンバス、その他もろもろ
 #赤色シートの配置
 card_width=100
