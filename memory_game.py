@@ -153,16 +153,26 @@ def check_cards():
             player_score2["text"] += 1
             player = 2
     #ボタンがウィンドウから消えたらその都度リストを更新する
-    buttons = [w for w in root.winfo_children() if isinstance(w, tkinter.Button)]
+    buttons = [w for w in root.winfo_children() if isinstance(w,  tkinter.Button) and w["text"]=="C"]
     if not buttons:
-        canvas.pack_forget()
         result_win = tkinter.Label(canvas_end, text="結果",font=("Times New Roman",80),bg="skyblue")
         if player_score1["text"] > player_score2["text"]:
-            result_win["text"] = player_score1
+            result_win_text = "プレイヤー1の勝利"
+            result_about = player_score1["text"]
+        elif player_score2["text"] > player_score1["text"]:
+            result_win_text = "プレイヤー2の勝利"
+            result_about = player_score2["text"]
         else:
-            result_win["text"] = player_score2
+            result_win_text = "引き分け"
+        result_win = tkinter.Label(canvas_end, text=result_win_text, font=("Times New Roman",40),bg="skyblue")
+        result_win.place(x=200, y=200)
+        result_about = tkinter.Label(canvas_end, text=result_about, font=("Times New Roman",70),bg="skyblue")
+        result_about.place(x=400, y=300)
+        canvas.pack_forget()
         canvas_end.pack()
-        
+        root.after(5000, window_closed)
+def window_closed():
+    root.destroy()
 #ウィンドウ、キャンバス、その他もろもろ
 #赤色シートの配置
 card_width=100
