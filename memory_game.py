@@ -41,6 +41,18 @@ def se1():
 def se2():
     winsound.PlaySound("maou_se_8bit08.wav",winsound.SND_FILENAME|winsound.SND_ASYNC)
     root.after(700, ub2)
+def se3():
+    winsound.PlaySound("maou_se_8bit08.wav",winsound.SND_FILENAME|winsound.SND_ASYNC)
+    root.after(700,ub3)
+def se4():
+    winsound.PlaySound("maou_se_8bit08.wav",winsound.SND_FILENAME|winsound.SND_ASYNC)
+    root.after(700, ub4)
+def se5():
+    winsound.PlaySound("maou_se_8bit08.wav",winsound.SND_FILENAME|winsound.SND_ASYNC)
+    root.after(700, ub5)
+def se6():
+    winsound.PlaySound("maou_se_8bit08.wav",winsound.SND_FILENAME|winsound.SND_ASYNC)
+    root.after(700, ub6)
 
 
 #ボタンの関数
@@ -244,13 +256,13 @@ ubutton1 = tkinter.Button(root, text="C", font=("Times New Roman",40),bg="yellow
 ubutton1.place(x=60,y=270) 
 ubutton2 = tkinter.Button(root, text="C", font=("Times New Roman",40),bg="yellow",command=se2)
 ubutton2.place(x=180,y=270) 
-ubutton3 = tkinter.Button(root, text="C", font=("Times New Roman",40),bg="yellow",command=ub3)
+ubutton3 = tkinter.Button(root, text="C", font=("Times New Roman",40),bg="yellow",command=se3)
 ubutton3.place(x=300,y=270) 
-ubutton4 = tkinter.Button(root, text="C", font=("Times New Roman",40),bg="yellow",command=ub4)
+ubutton4 = tkinter.Button(root, text="C", font=("Times New Roman",40),bg="yellow",command=se4)
 ubutton4.place(x=420,y=270) 
-ubutton5 = tkinter.Button(root, text="C", font=("Times New Roman",40),bg="yellow",command=ub5)
+ubutton5 = tkinter.Button(root, text="C", font=("Times New Roman",40),bg="yellow",command=se5)
 ubutton5.place(x=540,y=270) 
-ubutton6 = tkinter.Button(root, text="C", font=("Times New Roman",40),bg="yellow",command=ub6)
+ubutton6 = tkinter.Button(root, text="C", font=("Times New Roman",40),bg="yellow",command=se6)
 ubutton6.place(x=660,y=270) 
 bubutton1 = tkinter.Button(root, text="C", font=("Times New Roman",40),bg="yellow",command=bub1)
 bubutton1.place(x=60,y=470) 
