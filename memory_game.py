@@ -1,6 +1,7 @@
 import tkinter
 from tkinter import ttk
 import random
+import winsound
 #押されたボタンを保存するリスト
 opened = []
 #プレイヤーの変数
@@ -13,13 +14,18 @@ canvas.pack()
 canvas_end = tkinter.Canvas(root, width=800, height=800, bg="skyblue")
 canvas_end.pack_forget
 #文字を保管する変数
-letters = ["A","A","B","B","C","C","D","D","E","E","F","F","G","G","H","H","I","I"]
+letters = ["A","A","B","B","J","J","D","D","E","E","F","F","G","G","H","H","I","I"]
 random.shuffle(letters)
+#効果音の関数
+def sound1():
+    winsound.PlaySound("maou_se_8bit08.wav",winsound.SND_FILENAME|winsound.SND_ASYNC)
+    root.after(700, b1)
 #ボタンの関数
 def b1():
     global buttons
     button1["text"] = letters[0]
     opened.append(button1)#空の変数にボタンを入れる
+    winsound.PlaySound("maou_se_8bit08.wav",winsound.SND_FILENAME|winsound.SND_ASYNC)
 
 def b2():
     global buttons
@@ -199,7 +205,7 @@ player_score1.place(x=60, y=650)
 player_score2 = tkinter.Label(root, text=0, font=("Times New Roman",80),bg="skyblue")
 player_score2.place(x=660, y=650)
 #ボタンの配置
-button1 = tkinter.Button(root, text="C", font=("Times New Roman",40),bg="yellow",command=b1)
+button1 = tkinter.Button(root, text="C", font=("Times New Roman",40),bg="yellow",command=sound1)
 button1.place(x=60,y=70) 
 button2 = tkinter.Button(root, text="C", font=("Times New Roman",40),bg="yellow",command=b2)
 button2.place(x=180,y=70) 
