@@ -19,7 +19,30 @@ random.shuffle(letters)
 #効果音の関数
 def sound1():
     winsound.PlaySound("maou_se_8bit08.wav",winsound.SND_FILENAME|winsound.SND_ASYNC)
-    root.after(700, b1)
+    root.after(600, b1)
+def sound2():
+    winsound.PlaySound("maou_se_8bit08.wav",winsound.SND_FILENAME|winsound.SND_ASYNC)
+    root.after(700, b2)
+def sound3():
+    winsound.PlaySound("maou_se_8bit08.wav",winsound.SND_FILENAME|winsound.SND_ASYNC)
+    root.after(700, b3)
+def sound4():
+    winsound.PlaySound("maou_se_8bit08.wav",winsound.SND_FILENAME|winsound.SND_ASYNC)
+    root.after(700, b4)
+def sound5():
+    winsound.PlaySound("maou_se_8bit08.wav",winsound.SND_FILENAME|winsound.SND_ASYNC)
+    root.after(700, b5)
+def sound6():
+    winsound.PlaySound("maou_se_8bit08.wav",winsound.SND_FILENAME|winsound.SND_ASYNC)
+    root.after(700, b6)
+def se1():
+    winsound.PlaySound("maou_se_8bit08.wav",winsound.SND_FILENAME|winsound.SND_ASYNC)
+    root.after(700, ub1)
+def se2():
+    winsound.PlaySound("maou_se_8bit08.wav",winsound.SND_FILENAME|winsound.SND_ASYNC)
+    root.after(700, ub2)
+
+
 #ボタンの関数
 def b1():
     global buttons
@@ -217,9 +240,9 @@ button5 = tkinter.Button(root, text="C", font=("Times New Roman",40),bg="yellow"
 button5.place(x=540,y=70) 
 button6 = tkinter.Button(root, text="C", font=("Times New Roman",40),bg="yellow",command=sound6)
 button6.place(x=660,y=70) 
-ubutton1 = tkinter.Button(root, text="C", font=("Times New Roman",40),bg="yellow",command=se)
+ubutton1 = tkinter.Button(root, text="C", font=("Times New Roman",40),bg="yellow",command=se1)
 ubutton1.place(x=60,y=270) 
-ubutton2 = tkinter.Button(root, text="C", font=("Times New Roman",40),bg="yellow",command=)
+ubutton2 = tkinter.Button(root, text="C", font=("Times New Roman",40),bg="yellow",command=se2)
 ubutton2.place(x=180,y=270) 
 ubutton3 = tkinter.Button(root, text="C", font=("Times New Roman",40),bg="yellow",command=ub3)
 ubutton3.place(x=300,y=270) 
