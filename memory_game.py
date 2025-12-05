@@ -53,7 +53,28 @@ def se5():
 def se6():
     winsound.PlaySound("maou_se_8bit08.wav",winsound.SND_FILENAME|winsound.SND_ASYNC)
     root.after(700, ub6)
+def sse1():
+    winsound.PlaySound("maou_se_8bit08.wav",winsound.SND_FILENAME|winsound.SND_ASYNC)
+    root.after(700,bub1)
+def sse2():
+    winsound.PlaySound("maou_se_8bit08.wav",winsound.SND_FILENAME|winsound.SND_ASYNC)
+    root.after(700,bub2)
 
+def sse3():
+    winsound.PlaySound("maou_se_8bit08.wav",winsound.SND_FILENAME|winsound.SND_ASYNC)
+    root.after(700,bub3)
+
+def sse4():
+    winsound.PlaySound("maou_se_8bit08.wav",winsound.SND_FILENAME|winsound.SND_ASYNC)
+    root.after(700,bub4)
+
+def sse5():
+    winsound.PlaySound("maou_se_8bit08.wav",winsound.SND_FILENAME|winsound.SND_ASYNC)
+    root.after(700,bub5)
+
+def sse6():
+    winsound.PlaySound("maou_se_8bit08.wav",winsound.SND_FILENAME|winsound.SND_ASYNC)
+    root.after(700,bub6)
 
 #ボタンの関数
 def b1():
@@ -264,17 +285,17 @@ ubutton5 = tkinter.Button(root, text="C", font=("Times New Roman",40),bg="yellow
 ubutton5.place(x=540,y=270) 
 ubutton6 = tkinter.Button(root, text="C", font=("Times New Roman",40),bg="yellow",command=se6)
 ubutton6.place(x=660,y=270) 
-bubutton1 = tkinter.Button(root, text="C", font=("Times New Roman",40),bg="yellow",command=bub1)
+bubutton1 = tkinter.Button(root, text="C", font=("Times New Roman",40),bg="yellow",command=sse1)
 bubutton1.place(x=60,y=470) 
-bubutton2 = tkinter.Button(root, text="C", font=("Times New Roman",40),bg="yellow",command=bub2)
+bubutton2 = tkinter.Button(root, text="C", font=("Times New Roman",40),bg="yellow",command=sse2)
 bubutton2.place(x=180,y=470) 
-bubutton3 = tkinter.Button(root, text="C", font=("Times New Roman",40),bg="yellow",command=bub3)
+bubutton3 = tkinter.Button(root, text="C", font=("Times New Roman",40),bg="yellow",command=sse3)
 bubutton3.place(x=300,y=470) 
-bubutton4 = tkinter.Button(root, text="C", font=("Times New Roman",40),bg="yellow",command=bub4)
+bubutton4 = tkinter.Button(root, text="C", font=("Times New Roman",40),bg="yellow",command=sse4)
 bubutton4.place(x=420,y=470) 
-bubutton5 = tkinter.Button(root, text="C", font=("Times New Roman",40),bg="yellow",command=bub5)
+bubutton5 = tkinter.Button(root, text="C", font=("Times New Roman",40),bg="yellow",command=sse5)
 bubutton5.place(x=540,y=470) 
-bubutton6 = tkinter.Button(root, text="C", font=("Times New Roman",40),bg="yellow",command=bub6)
+bubutton6 = tkinter.Button(root, text="C", font=("Times New Roman",40),bg="yellow",command=sse6)
 bubutton6.place(x=660,y=470)
 #テスト
 buttons = [w for w in root.winfo_children() if isinstance(w, tkinter.Button)]
