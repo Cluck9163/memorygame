@@ -19,7 +19,7 @@ random.shuffle(letters)
 #効果音の関数
 def sound1():
     winsound.PlaySound("maou_se_8bit08.wav",winsound.SND_FILENAME|winsound.SND_ASYNC)
-    root.after(600, b1)
+    root.after(700, b1)
 def sound2():
     winsound.PlaySound("maou_se_8bit08.wav",winsound.SND_FILENAME|winsound.SND_ASYNC)
     root.after(700, b2)
@@ -79,9 +79,8 @@ def sse6():
 #ボタンの関数
 def b1():
     global buttons
-    button1["text"] = letters[0]
+    button1.config(image="",text=letters[0])
     opened.append(button1)#空の変数にボタンを入れる
-    winsound.PlaySound("maou_se_8bit08.wav",winsound.SND_FILENAME|winsound.SND_ASYNC)
 
 def b2():
     global buttons
@@ -260,8 +259,10 @@ player_score1 = tkinter.Label(root, text=0, font=("Times New Roman",80),bg="skyb
 player_score1.place(x=60, y=650)
 player_score2 = tkinter.Label(root, text=0, font=("Times New Roman",80),bg="skyblue")
 player_score2.place(x=660, y=650)
+#画像を読み込む
+back_card = tkinter.PhotoImage(file="New Piskel.png")
 #ボタンの配置
-button1 = tkinter.Button(root, text="C", font=("Times New Roman",40),bg="yellow",command=sound1)
+button1 = tkinter.Button(root, image=back_card, font=("Times New Roman",40),bg="yellow",command=sound1)
 button1.place(x=60,y=70) 
 button2 = tkinter.Button(root, text="C", font=("Times New Roman",40),bg="yellow",command=sound2)
 button2.place(x=180,y=70) 
@@ -299,6 +300,7 @@ bubutton6 = tkinter.Button(root, text="C", font=("Times New Roman",40),bg="yello
 bubutton6.place(x=660,y=470)
 #テスト
 buttons = [w for w in root.winfo_children() if isinstance(w, tkinter.Button)]
-
+root.update()
+print(bubutton1.winfo_width(),bubutton1.winfo_height())
 
 root.mainloop()
