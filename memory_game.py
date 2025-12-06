@@ -84,49 +84,49 @@ def b1():
 
 def b2():
     global buttons
-    button2["text"] = letters[1]
+    button2.config(image="",text=letters[1])
     opened.append(button2)
     if len(opened) == 2:
         root.after(1000, check_cards)
 
 def b3():
     global buttons
-    button3["text"] = letters[2]
+    button3.config(image="",text=letters[2])
     opened.append(button3)
     if len(opened) == 2:
         root.after(1000, check_cards)
 
 def b4():
     global buttons
-    button4["text"] = letters[3]
+    button4.config(image="",text=letters[3])
     opened.append(button4)
     if len(opened) == 2:
         root.after(1000, check_cards)
 
 def b5():
     global buttons
-    button5["text"] = letters[4]
+    button5.config(image="",text=[4])
     opened.append(button5)
     if len(opened) == 2:
         root.after(1000, check_cards)
 
 def b6():
     global buttons
-    button6["text"] = letters[5]
+    button6.config(image="",text=letters[5])
     opened.append(button6)
     if len(opened) == 2:
         root.after(1000, check_cards)
 
 def ub1():
     global buttons
-    ubutton1["text"] = letters[6]
+    ubutton1.config(image="",text=letters[6])
     opened.append(ubutton1)
     if len(opened) == 2:
         root.after(1000, check_cards)
 
 def ub2():
     global buttons
-    ubutton2["text"] = letters[7]
+    ubutton2.config(image="",text=letters[7])
     opened.append(ubutton2)
     if len(opened) == 2:
         print("hello")
@@ -134,59 +134,59 @@ def ub2():
 
 def ub3():
     global buttons
-    ubutton3["text"] = letters[8]
+    ubutton3.config(image="",text=letters[8])
     opened.append(ubutton3)
     if len(opened) == 2:
         root.after(1000, check_cards)
 
 def ub4():
     global buttons
-    ubutton4["text"] = letters[9]
+    ubutton4.config(image="",text=letters[9])
     opened.append(ubutton4)
     if len(opened) == 2:
         root.after(1000, check_cards)
 def ub5():
-    ubutton5["text"] = letters[10]
+    ubutton5.config(image="", text=letters[10])
     opened.append(ubutton5)
     if len(opened) == 2:
         root.after(1000, check_cards)
 
 def ub6():
-    ubutton6["text"] = letters[11]
+    ubutton6.config(image="", text=letters[11])
     opened.append(ubutton6)
     if len(opened) == 2:
         root.after(1000, check_cards)
 def bub1():
-    bubutton1["text"] = letters[12]
+    bubutton1.config(image="",text=letters[12])
     opened.append(bubutton1)
     if len(opened) == 2:
         root.after(1000, check_cards)
 def bub2():
-    bubutton2["text"] = letters[13]
+    bubutton2.config(image="", text=letters[13])
     opened.append(bubutton2)
     if len(opened) == 2:
         root.after(1000, check_cards)
 def bub3():
     global buttons
-    bubutton3["text"] = letters[14]
+    bubutton3.config(image="",text=letters[14])
     opened.append(bubutton3)
     if len(opened) == 2:
         root.after(1000, check_cards)
 def bub4():
-    bubutton4["text"] = letters[15]
+    bubutton4.config(image="", text=letters[15])
     opened.append(bubutton4)
     if len(opened) == 2:
         root.after(1000, check_cards)
 
 def bub5():
-    bubutton5["text"] = letters[16]
+    bubutton5.config(image="",text=letters[16])
     opened.append(bubutton5)
     if len(opened) == 2:
         root.after(1000, check_cards)
 
 def bub6():
     global buttons
-    bubutton6["text"] = letters[17]
+    bubutton6.config(image="",text=letters[17])
     opened.append(bubutton6)
     if len(opened) == 2:
         root.after(1000, check_cards)
@@ -199,8 +199,8 @@ def check_cards():
     global player_score2
     i1, i2 = opened
     if i1["text"] != i2["text"]:#ボタンのテクストが違ったら元に戻す
-        i1["text"] = "C"
-        i2["text"] = "C"
+        i1.config(text="", image=back_card)
+        i2.config(text="", image=back_card)
         if player == 1:
             player = 2
         else:
@@ -264,39 +264,39 @@ back_card = tkinter.PhotoImage(file="New Piskel.png")
 #ボタンの配置
 button1 = tkinter.Button(root, image=back_card, font=("Times New Roman",40),bg="yellow",command=sound1)
 button1.place(x=60,y=70) 
-button2 = tkinter.Button(root, text="C", font=("Times New Roman",40),bg="yellow",command=sound2)
+button2 = tkinter.Button(root, image=back_card, font=("Times New Roman",40),bg="yellow",command=sound2)
 button2.place(x=180,y=70) 
-button3 = tkinter.Button(root, text="C", font=("Times New Roman",40),bg="yellow",command=sound3)
+button3 = tkinter.Button(root, image=back_card, font=("Times New Roman",40),bg="yellow",command=sound3)
 button3.place(x=300,y=70) 
-button4 = tkinter.Button(root, text="C", font=("Times New Roman",40),bg="yellow",command=sound4)
+button4 = tkinter.Button(root, image=back_card, font=("Times New Roman",40),bg="yellow",command=sound4)
 button4.place(x=420,y=70) 
-button5 = tkinter.Button(root, text="C", font=("Times New Roman",40),bg="yellow",command=sound5)
+button5 = tkinter.Button(root, image=back_card, font=("Times New Roman",40),bg="yellow",command=sound5)
 button5.place(x=540,y=70) 
-button6 = tkinter.Button(root, text="C", font=("Times New Roman",40),bg="yellow",command=sound6)
+button6 = tkinter.Button(root, image=back_card, font=("Times New Roman",40),bg="yellow",command=sound6)
 button6.place(x=660,y=70) 
-ubutton1 = tkinter.Button(root, text="C", font=("Times New Roman",40),bg="yellow",command=se1)
+ubutton1 = tkinter.Button(root, image=back_card, font=("Times New Roman",40),bg="yellow",command=se1)
 ubutton1.place(x=60,y=270) 
-ubutton2 = tkinter.Button(root, text="C", font=("Times New Roman",40),bg="yellow",command=se2)
+ubutton2 = tkinter.Button(root, image=back_card, font=("Times New Roman",40),bg="yellow",command=se2)
 ubutton2.place(x=180,y=270) 
-ubutton3 = tkinter.Button(root, text="C", font=("Times New Roman",40),bg="yellow",command=se3)
+ubutton3 = tkinter.Button(root, image=back_card, font=("Times New Roman",40),bg="yellow",command=se3)
 ubutton3.place(x=300,y=270) 
-ubutton4 = tkinter.Button(root, text="C", font=("Times New Roman",40),bg="yellow",command=se4)
+ubutton4 = tkinter.Button(root, image=back_card, font=("Times New Roman",40),bg="yellow",command=se4)
 ubutton4.place(x=420,y=270) 
-ubutton5 = tkinter.Button(root, text="C", font=("Times New Roman",40),bg="yellow",command=se5)
+ubutton5 = tkinter.Button(root, image=back_card, font=("Times New Roman",40),bg="yellow",command=se5)
 ubutton5.place(x=540,y=270) 
-ubutton6 = tkinter.Button(root, text="C", font=("Times New Roman",40),bg="yellow",command=se6)
+ubutton6 = tkinter.Button(root, image=back_card, font=("Times New Roman",40),bg="yellow",command=se6)
 ubutton6.place(x=660,y=270) 
-bubutton1 = tkinter.Button(root, text="C", font=("Times New Roman",40),bg="yellow",command=sse1)
+bubutton1 = tkinter.Button(root, image=back_card, font=("Times New Roman",40),bg="yellow",command=sse1)
 bubutton1.place(x=60,y=470) 
-bubutton2 = tkinter.Button(root, text="C", font=("Times New Roman",40),bg="yellow",command=sse2)
+bubutton2 = tkinter.Button(root, image=back_card, font=("Times New Roman",40),bg="yellow",command=sse2)
 bubutton2.place(x=180,y=470) 
-bubutton3 = tkinter.Button(root, text="C", font=("Times New Roman",40),bg="yellow",command=sse3)
+bubutton3 = tkinter.Button(root, image=back_card, font=("Times New Roman",40),bg="yellow",command=sse3)
 bubutton3.place(x=300,y=470) 
-bubutton4 = tkinter.Button(root, text="C", font=("Times New Roman",40),bg="yellow",command=sse4)
+bubutton4 = tkinter.Button(root, image=back_card, font=("Times New Roman",40),bg="yellow",command=sse4)
 bubutton4.place(x=420,y=470) 
-bubutton5 = tkinter.Button(root, text="C", font=("Times New Roman",40),bg="yellow",command=sse5)
+bubutton5 = tkinter.Button(root, image=back_card, font=("Times New Roman",40),bg="yellow",command=sse5)
 bubutton5.place(x=540,y=470) 
-bubutton6 = tkinter.Button(root, text="C", font=("Times New Roman",40),bg="yellow",command=sse6)
+bubutton6 = tkinter.Button(root, image=back_card, font=("Times New Roman",40),bg="yellow",command=sse6)
 bubutton6.place(x=660,y=470)
 #テスト
 buttons = [w for w in root.winfo_children() if isinstance(w, tkinter.Button)]
