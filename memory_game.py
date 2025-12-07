@@ -75,12 +75,16 @@ def sse5():
 def sse6():
     winsound.PlaySound("maou_se_8bit08.wav",winsound.SND_FILENAME|winsound.SND_ASYNC)
     bub6()
+# 押されたボタンを管理するリスト
+buttons = []
 
 #ボタンの関数
 def b1():
     global buttons
     button1.config(image="",text=letters[0])
     opened.append(button1)#空の変数にボタンを入れる
+    if len(opened)==2:
+        root.after(1000, check_cards)
 
 def b2():
     global buttons
@@ -88,7 +92,6 @@ def b2():
     opened.append(button2)
     if len(opened) == 2:
         root.after(1000, check_cards)
-
 def b3():
     global buttons
     button3.config(image="",text=letters[2])
@@ -122,14 +125,12 @@ def ub1():
     ubutton1.config(image="",text=letters[6])
     opened.append(ubutton1)
     if len(opened) == 2:
-        root.after(1000, check_cards)
-
+        root.after(1000,check_cards)
 def ub2():
     global buttons
     ubutton2.config(image="",text=letters[7])
     opened.append(ubutton2)
     if len(opened) == 2:
-        print("hello")
         root.after(1000, check_cards)
 
 def ub3():
@@ -145,40 +146,51 @@ def ub4():
     opened.append(ubutton4)
     if len(opened) == 2:
         root.after(1000, check_cards)
+
 def ub5():
+    global buttons
     ubutton5.config(image="", text=letters[10])
     opened.append(ubutton5)
     if len(opened) == 2:
         root.after(1000, check_cards)
 
 def ub6():
+    global buttons
     ubutton6.config(image="", text=letters[11])
     opened.append(ubutton6)
     if len(opened) == 2:
         root.after(1000, check_cards)
+
 def bub1():
+    global buttons
     bubutton1.config(image="",text=letters[12])
     opened.append(bubutton1)
     if len(opened) == 2:
         root.after(1000, check_cards)
+
 def bub2():
+    global buttons
     bubutton2.config(image="", text=letters[13])
     opened.append(bubutton2)
     if len(opened) == 2:
         root.after(1000, check_cards)
+
 def bub3():
     global buttons
     bubutton3.config(image="",text=letters[14])
     opened.append(bubutton3)
     if len(opened) == 2:
         root.after(1000, check_cards)
+
 def bub4():
+    global buttons
     bubutton4.config(image="", text=letters[15])
     opened.append(bubutton4)
     if len(opened) == 2:
         root.after(1000, check_cards)
 
 def bub5():
+    global buttons
     bubutton5.config(image="",text=letters[16])
     opened.append(bubutton5)
     if len(opened) == 2:
@@ -190,7 +202,7 @@ def bub6():
     opened.append(bubutton6)
     if len(opened) == 2:
         root.after(1000, check_cards)
-    
+
 
 #二つのボタンを判定する関数
 def check_cards():
@@ -210,6 +222,7 @@ def check_cards():
     elif i1["text"] == i2["text"]:#ボタンがそろった瞬間そのボタンを消す
         i1.destroy()
         i2.destroy()
+        
         root.update()
         opened.clear()
         if player == 1:
@@ -218,10 +231,8 @@ def check_cards():
         else:
             player_score2["text"] += 1
             player = 2
-    #ボタンがウィンドウから消えたらその都度リストを更新する
-    buttons = [button1,button2,button3,button4,button5,button6,ubutton1,ubutton2,ubutton3,
-               ubutton4,ubutton5,ubutton6,bubutton1,bubutton2,bubutton3,bubutton4,bubutton5,bubutton6]
-    if not buttons:
+    if len(buttons)==18:
+        print("はんのうはしてんだよな")
         result_win = tkinter.Label(canvas_end, text="結果",font=("Times New Roman",80),bg="skyblue")
         if player_score1["text"] > player_score2["text"]:
             result_win_text = "プレイヤー1の勝利"
@@ -240,7 +251,6 @@ def check_cards():
         root.after(5000, window_closed)
 def window_closed():
     root.destroy()
-#ウィンドウ、キャンバス、その他もろもろ
 #赤色シートの配置
 card_width=100
 card_height=100
