@@ -19,62 +19,62 @@ random.shuffle(letters)
 #効果音の関数
 def sound1():
     winsound.PlaySound("maou_se_8bit08.wav",winsound.SND_FILENAME|winsound.SND_ASYNC)
-    root.after(700, b1)
+    b1()
 def sound2():
     winsound.PlaySound("maou_se_8bit08.wav",winsound.SND_FILENAME|winsound.SND_ASYNC)
-    root.after(700, b2)
+    b2()
 def sound3():
     winsound.PlaySound("maou_se_8bit08.wav",winsound.SND_FILENAME|winsound.SND_ASYNC)
-    root.after(700, b3)
+    b3()
 def sound4():
     winsound.PlaySound("maou_se_8bit08.wav",winsound.SND_FILENAME|winsound.SND_ASYNC)
-    root.after(700, b4)
+    b4()
 def sound5():
     winsound.PlaySound("maou_se_8bit08.wav",winsound.SND_FILENAME|winsound.SND_ASYNC)
-    root.after(700, b5)
+    b5()
 def sound6():
     winsound.PlaySound("maou_se_8bit08.wav",winsound.SND_FILENAME|winsound.SND_ASYNC)
-    root.after(700, b6)
+    b6()
 def se1():
     winsound.PlaySound("maou_se_8bit08.wav",winsound.SND_FILENAME|winsound.SND_ASYNC)
-    root.after(700, ub1)
+    ub1()
 def se2():
     winsound.PlaySound("maou_se_8bit08.wav",winsound.SND_FILENAME|winsound.SND_ASYNC)
-    root.after(700, ub2)
+    ub2()
 def se3():
     winsound.PlaySound("maou_se_8bit08.wav",winsound.SND_FILENAME|winsound.SND_ASYNC)
-    root.after(700,ub3)
+    ub3()
 def se4():
     winsound.PlaySound("maou_se_8bit08.wav",winsound.SND_FILENAME|winsound.SND_ASYNC)
-    root.after(700, ub4)
+    ub4()
 def se5():
     winsound.PlaySound("maou_se_8bit08.wav",winsound.SND_FILENAME|winsound.SND_ASYNC)
-    root.after(700, ub5)
+    ub5()
 def se6():
     winsound.PlaySound("maou_se_8bit08.wav",winsound.SND_FILENAME|winsound.SND_ASYNC)
-    root.after(700, ub6)
+    ub6()
 def sse1():
     winsound.PlaySound("maou_se_8bit08.wav",winsound.SND_FILENAME|winsound.SND_ASYNC)
-    root.after(700,bub1)
+    bub1()
 def sse2():
     winsound.PlaySound("maou_se_8bit08.wav",winsound.SND_FILENAME|winsound.SND_ASYNC)
-    root.after(700,bub2)
+    bub2()
 
 def sse3():
     winsound.PlaySound("maou_se_8bit08.wav",winsound.SND_FILENAME|winsound.SND_ASYNC)
-    root.after(700,bub3)
+    bub3()
 
 def sse4():
     winsound.PlaySound("maou_se_8bit08.wav",winsound.SND_FILENAME|winsound.SND_ASYNC)
-    root.after(700,bub4)
+    bub4()
 
 def sse5():
     winsound.PlaySound("maou_se_8bit08.wav",winsound.SND_FILENAME|winsound.SND_ASYNC)
-    root.after(700,bub5)
+    bub5()
 
 def sse6():
     winsound.PlaySound("maou_se_8bit08.wav",winsound.SND_FILENAME|winsound.SND_ASYNC)
-    root.after(700,bub6)
+    bub6()
 
 #ボタンの関数
 def b1():
@@ -105,7 +105,7 @@ def b4():
 
 def b5():
     global buttons
-    button5.config(image="",text=[4])
+    button5.config(image="",text=letters[4])
     opened.append(button5)
     if len(opened) == 2:
         root.after(1000, check_cards)
@@ -201,6 +201,7 @@ def check_cards():
     if i1["text"] != i2["text"]:#ボタンのテクストが違ったら元に戻す
         i1.config(text="", image=back_card)
         i2.config(text="", image=back_card)
+        root.update()
         if player == 1:
             player = 2
         else:
@@ -209,6 +210,7 @@ def check_cards():
     elif i1["text"] == i2["text"]:#ボタンがそろった瞬間そのボタンを消す
         i1.destroy()
         i2.destroy()
+        root.update()
         opened.clear()
         if player == 1:
             player_score1["text"] += 1
@@ -217,7 +219,8 @@ def check_cards():
             player_score2["text"] += 1
             player = 2
     #ボタンがウィンドウから消えたらその都度リストを更新する
-    buttons = [w for w in root.winfo_children() if isinstance(w,  tkinter.Button) and w["text"]=="C"]
+    buttons = [button1,button2,button3,button4,button5,button6,ubutton1,ubutton2,ubutton3,
+               ubutton4,ubutton5,ubutton6,bubutton1,bubutton2,bubutton3,bubutton4,bubutton5,bubutton6]
     if not buttons:
         result_win = tkinter.Label(canvas_end, text="結果",font=("Times New Roman",80),bg="skyblue")
         if player_score1["text"] > player_score2["text"]:
