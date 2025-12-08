@@ -76,8 +76,8 @@ def sse6():
     winsound.PlaySound("maou_se_8bit08.wav",winsound.SND_FILENAME|winsound.SND_ASYNC)
     bub6()
 # 押されたボタンを管理するリスト
-buttons = []
-
+buttons = 0
+buttons = int(buttons)
 #ボタンの関数
 def b1():
     global buttons
@@ -206,6 +206,7 @@ def bub6():
 
 #二つのボタンを判定する関数
 def check_cards():
+    global buttons
     global player
     global player_score1
     global player_score2
@@ -213,7 +214,6 @@ def check_cards():
     if i1["text"] != i2["text"]:#ボタンのテクストが違ったら元に戻す
         i1.config(text="", image=back_card)
         i2.config(text="", image=back_card)
-        root.update()
         if player == 1:
             player = 2
         else:
@@ -222,8 +222,7 @@ def check_cards():
     elif i1["text"] == i2["text"]:#ボタンがそろった瞬間そのボタンを消す
         i1.destroy()
         i2.destroy()
-        
-        root.update()
+        buttons += 2
         opened.clear()
         if player == 1:
             player_score1["text"] += 1
@@ -231,7 +230,7 @@ def check_cards():
         else:
             player_score2["text"] += 1
             player = 2
-    if len(buttons)==18:
+    if buttons==18:
         print("はんのうはしてんだよな")
         result_win = tkinter.Label(canvas_end, text="結果",font=("Times New Roman",80),bg="skyblue")
         if player_score1["text"] > player_score2["text"]:
@@ -311,9 +310,5 @@ bubutton5 = tkinter.Button(root, image=back_card, font=("Times New Roman",40),bg
 bubutton5.place(x=540,y=470) 
 bubutton6 = tkinter.Button(root, image=back_card, font=("Times New Roman",40),bg="yellow",command=sse6)
 bubutton6.place(x=660,y=470)
-#テスト
-buttons = [w for w in root.winfo_children() if isinstance(w, tkinter.Button)]
-root.update()
-print(bubutton1.winfo_width(),bubutton1.winfo_height())
 
 root.mainloop()
