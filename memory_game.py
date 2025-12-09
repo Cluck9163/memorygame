@@ -2,6 +2,8 @@ import tkinter
 from tkinter import ttk
 import random
 import winsound
+#jpg画像を読み込むために必要なpillowというライブラリ
+from PIL import Image, ImageTk
 #押されたボタンを保存するリスト
 opened = []
 #プレイヤーの変数
@@ -9,10 +11,6 @@ player = 1
 root = tkinter.Tk()
 root.title("神経衰弱")
 root.geometry("800x800")
-canvas  = tkinter.Canvas(root, width=800, height=800, bg="skyblue")
-canvas.pack()
-canvas_end = tkinter.Canvas(root, width=800, height=800, bg="skyblue")
-canvas_end.pack_forget
 #文字を保管する変数
 letters = ["A","A","B","B","J","J","D","D","E","E","F","F","G","G","H","H","I","I"]
 random.shuffle(letters)
@@ -225,20 +223,20 @@ def check_cards():
         buttons += 2
         opened.clear()
         if player == 1:
-            player_score1["text"] += 1
+            player_score1 += 1
             player = 1
         else:
-            player_score2["text"] += 1
+            player_score2 += 1
             player = 2
     if buttons==18:
         print("はんのうはしてんだよな")
         result_win = tkinter.Label(canvas_end, text="結果",font=("Times New Roman",80),bg="skyblue")
-        if player_score1["text"] > player_score2["text"]:
+        if player_score1 > player_score2:
             result_win_text = "プレイヤー1の勝利"
-            result_about = player_score1["text"]
-        elif player_score2["text"] > player_score1["text"]:
+            result_about = player_score1
+        elif player_score2 > player_score1:
             result_win_text = "プレイヤー2の勝利"
-            result_about = player_score2["text"]
+            result_about = player_score2
         else:
             result_win_text = "引き分け"
         result_win = tkinter.Label(canvas_end, text=result_win_text, font=("Times New Roman",40),bg="skyblue")
@@ -250,6 +248,18 @@ def check_cards():
         root.after(5000, window_closed)
 def window_closed():
     root.destroy()
+#画像を読み込む
+back_card = tkinter.PhotoImage(file="New Piskel.png")
+background_open = Image.open("technology-background-8d11qyyd6ptfh737.jpg")
+background = ImageTk.PhotoImage(background_open)
+
+#キャンバス
+canvas  = tkinter.Canvas(root,width=800, height=800, bg="skyblue")
+canvas.pack()
+canvas.create_image(0,0,anchor="nw",image=background)
+canvas_end = tkinter.Canvas(root, width=800, height=800, bg="skyblue")
+canvas_end.pack_forget()
+
 #赤色シートの配置
 card_width=100
 card_height=100
@@ -266,13 +276,9 @@ for c in range(6):
     x1 = c*(card_width+gap)+50
     x2 = x1 + card_width
     canvas.create_rectangle(x1,450,x2,600,fill="red",outline="red",width=2)
-#得点を表示するラベル
-player_score1 = tkinter.Label(root, text=0, font=("Times New Roman",80),bg="skyblue")
-player_score1.place(x=60, y=650)
-player_score2 = tkinter.Label(root, text=0, font=("Times New Roman",80),bg="skyblue")
-player_score2.place(x=660, y=650)
-#画像を読み込む
-back_card = tkinter.PhotoImage(file="New Piskel.png")
+#得点を管理する変数
+player_score1 = 0
+player_score2 = 0
 #ボタンの配置
 button1 = tkinter.Button(root, image=back_card, font=("Times New Roman",40),bg="yellow",command=sound1)
 button1.place(x=60,y=70) 
