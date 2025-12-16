@@ -229,7 +229,6 @@ def check_cards():
             player_score2 += 1
             player = 2
     if buttons==18:
-        print("はんのうはしてんだよな")
         result_win = tkinter.Label(canvas_end, text="結果",font=("Times New Roman",80),bg="skyblue")
         if player_score1 > player_score2:
             result_win_text = "プレイヤー1の勝利"
